@@ -15,6 +15,8 @@ const TablaComidas = ({ comidas, onActualizarCantidad }) => {
       dataIndex: 'cantidad',
       key: 'cantidad',
       responsive: ['xs', 'sm', 'md'],
+      sorter: (a, b) => a.cantidad - b.cantidad,
+
       render: (cantidad) => (
         <span style={{ color: cantidad === 0 ? '#ff4d4f' : '#52c41a', fontWeight: 'bold' }}>
           {cantidad}
@@ -25,8 +27,9 @@ const TablaComidas = ({ comidas, onActualizarCantidad }) => {
       title: 'Fecha de fabricación',
       dataIndex: 'fecha',
       key: 'fecha',
-      responsive: ['md'],
-      render: (fecha) => fecha ? fecha.toDate().toLocaleDateString('es-AR') : '-',
+      sorter: (a, b) => a.fecha?.toDate() - b.fecha?.toDate(),
+      render: (fecha) =>
+        fecha ? fecha.toDate().toLocaleDateString('es-AR') : '-',
     },
     {
       title: 'Acciones',
