@@ -65,7 +65,7 @@ const TablaComidas = ({ comidas, onActualizarCantidad }) => {
       dataSource={comidas}
       columns={columns}
       rowKey="id"
-      pagination={{ pageSize: 5 }}
+      pagination={false}
       scroll={{ x: 'max-content' }}
       bordered
       style={{
