@@ -8,7 +8,9 @@ const TablaComidas = ({ comidas, onActualizarCantidad }) => {
       dataIndex: 'nombre',
       key: 'nombre',
       responsive: ['xs', 'sm', 'md', 'lg'],
-      fixed: 'left',
+      render: (nombre) => (
+        <div style={{ wordBreak: 'break-word', maxWidth: 150 }}>{nombre}</div>
+      ),
     },
     {
       title: 'Cantidad',
