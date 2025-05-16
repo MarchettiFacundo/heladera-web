@@ -44,3 +44,7 @@
 .ant-table {
   min-width: 600px;
 }
+.swal2-popup.responsive-modal {
+  max-width: 90vw !important;
+  width: 100% !important;
+}
