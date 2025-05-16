@@ -7,14 +7,13 @@ const TablaComidas = ({ comidas, onActualizarCantidad }) => {
       title: 'Comida',
       dataIndex: 'nombre',
       key: 'nombre',
-      sorter: (a, b) => a.nombre.localeCompare(b.nombre),
-      responsive: ['sm'], // Visible desde sm (small) en adelante
+      responsive: ['xs', 'sm', 'md', 'lg'],
+      fixed: 'left',
     },
     {
       title: 'Cantidad',
       dataIndex: 'cantidad',
       key: 'cantidad',
-      sorter: (a, b) => a.cantidad - b.cantidad,
       responsive: ['xs', 'sm', 'md'],
       render: (cantidad) => (
         <span style={{ color: cantidad === 0 ? '#ff4d4f' : '#52c41a', fontWeight: 'bold' }}>
@@ -26,7 +25,7 @@ const TablaComidas = ({ comidas, onActualizarCantidad }) => {
       title: 'Fecha de fabricación',
       dataIndex: 'fecha',
       key: 'fecha',
-      responsive: ['md'], // Visible en md (tablets) para arriba
+      responsive: ['md'],
       render: (fecha) => fecha ? fecha.toDate().toLocaleDateString('es-AR') : '-',
     },
     {
@@ -57,16 +56,22 @@ const TablaComidas = ({ comidas, onActualizarCantidad }) => {
     },
   ];
 
+
   return (
     <Table
       dataSource={comidas}
       columns={columns}
       rowKey="id"
-      pagination={{ pageSize: 5, showSizeChanger: true, pageSizeOptions: ['5', '10', '20'] }}
-      scroll={{ x: 700 }}
+      pagination={{ pageSize: 5 }}
+      scroll={{ x: 'max-content' }}
       bordered
-      style={{ marginTop: 20, boxShadow: '0 4px 8px rgba(0,0,0,0.1)', borderRadius: 8 }}
+      style={{
+        marginTop: 20,
+        borderRadius: 8,
+        overflowX: 'auto',
+      }}
     />
+
   );
 };
 

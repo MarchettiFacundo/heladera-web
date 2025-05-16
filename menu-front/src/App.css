@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+/* App.css */
+.ant-table-wrapper {
+  overflow-x: auto;
+}
+
+.ant-table {
+  min-width: 600px;
+}
